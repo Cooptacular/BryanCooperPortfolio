@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 permissions:
@@ -36,8 +36,8 @@ jobs:
       - name: Build with Astro
         run: npm run build
         env:
-          SITE: https://jdrhyne.github.io
-          BASE_PATH: /volks-typo/
+          SITE: https://cooptacular.github.io
+          BASE_PATH: /BryanCooperPortfolio/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
