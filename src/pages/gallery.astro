@@ -1,8 +1,11 @@
 ---
 import Layout from '../components/Layout.astro';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
 const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
-
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/gallery/*.{jpg,jpeg,png,webp}",
+);
 ---
 
 <Layout title="Photography" description="Photos by Bryan Cooper, with patience and an eye for opportunity." showSidebar={false}>
