@@ -2,6 +2,14 @@
 
 /* Color Variables */
 :root {
+    /* Cooptacular Color Theme Swatches in Hex */
+  --color-dark-green: #1C1F14; 
+  --color-dark-blue: #5693BF; 
+  --color-light-blue: #8EBFDD;
+  --color-light-green: #3E4C35; 
+  --color-light-green: #F6F5F1;
+  --color-white: #ffffff;
+  
   /* Monotone Palette */
   --color-white: #ffffff;
   --color-light-gray: #f5f5f5;
