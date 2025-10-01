@@ -189,7 +189,9 @@ cd volks-typo</code></pre>
   .hero {
     text-align: center;
     padding: calc(var(--grid-unit) * 12) 0 calc(var(--grid-unit) * 8);
-    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    /* background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%); */
+    background: url('../assets/AspenHero.png'), linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    background-size: cover;
   }
 
   .hero-content {
@@ -621,6 +623,10 @@ cd volks-typo</code></pre>
   @media (max-width: 768px) {
     .hero-title {
       font-size: 3rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
     }
 
     .hero-subtitle {
