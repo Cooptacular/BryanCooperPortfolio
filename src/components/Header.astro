@@ -18,7 +18,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     
     <div class="site-title">
       <a href={base}>
-        <img src={base + "site-title.svg"} alt={config.title} class="title-svg" />
+        <img src={base + "YetiMon.svg"} alt={config.title} class="title-svg" />
       </a>
     </div>
     
@@ -276,7 +276,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
   }
 
   .title-svg {
-    height: 48px;
+    height: 60px; /* 48px; */
     width: auto;
     max-width: 280px;
     border: none !important; /* Override global img styles */
