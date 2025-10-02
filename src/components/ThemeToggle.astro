@@ -26,7 +26,7 @@
   }
   
   toggle?.addEventListener('click', () => {
-    const current = document.documentElement.dataset.theme || 'dark';
+    const current = document.documentElement.dataset.theme || 'light';
     const next = current === 'light' ? 'dark' : 'light';
     setTheme(next);
   });
