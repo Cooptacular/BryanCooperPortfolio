@@ -35,7 +35,7 @@ const publishedTime = frontmatter.date ? new Date(frontmatter.date).toISOString(
 ---
 
 <Layout 
-  title={pageTitle} 
+  title={pageTitle} showSidebar={false}
   description={frontmatter.description || frontmatter.excerpt}
   type="article"
   publishedTime={publishedTime}
