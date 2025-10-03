@@ -8,9 +8,11 @@ tags: ["Pyrography", "Art"]
 ---
 # The Art of Writing with Fire
 
-Pyrography is the art of wood burning, and is the only art form that chemically changes the medium. I learned this craft from my grandfather, who is my guiding star in this Universe. From the coaster under my coffee, to the lid on our recipe box, his work inspires me in the nooks of my home as I bounce about through the day. I started wood burning myself long ago, and practice it far less than I like. 
+Pyrography is the art of wood burning, and is the only art form that chemically changes the medium. I learned this craft from my grandfather, who is my guiding star in this Universe. From the coaster under my coffee, to the lid on our recipe box, his work inspires me in the nooks of my home as I bounce around throughout the day. I started wood burning myself long ago, and practice it far less than I like. 
 
-Pyrography is meditative, it requires presence and confidence in each stroke. If you dwell too long your lines blur and bloom, and you cannot erase. The practice engages all the senses of the artist. You see your wooden canvas transforming through pyrolysis, as the hot metal blade converts your strokes to charcoal and ash. Your olfactory nerves are filled with the smell of burning wood. The soft hissing of hot metal burning the wood vibrates in your auditory system. You can even taste the delicate plumes of smoke. 
+> Pyrography is meditative, it requires presence and confidence in each stroke. If you dwell too long your lines blur and bloom, and you cannot erase. 
+
+The practice engages all the senses of the artist. You see your wooden canvas transforming through pyrolysis, as the hot metal blade converts your strokes to charcoal and ash. Your olfactory nerves are filled with the smell of burning wood. The soft hissing of hot metal burning the wood vibrates in your auditory system. You can even taste the delicate plumes of smoke. 
 
 Each species of wood is a different challenge to burn on. Basswood is soft and consistent, highly preferred and likely what you’ll find at an art store for good reason. Pine releases sap, and can gum up your pen, and is stubborn to find a consistent stroke. Other hardwoods can yield nice results, such as Maple, Poplar, Birch, Walnut, and Cherry, and require a slightly higher temperature on your tool to cut smooth lines. As the art of Pyrography is a form of chemistry, it is best practiced with experimentation. Each art piece is its own study. 
 
