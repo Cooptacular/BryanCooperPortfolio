@@ -22,7 +22,7 @@ export const config: SiteConfig = {
   author: {
     name: "Bryan Cooper",
     bio: "A stream of consciousness performed with random precision.",
-    avatar: "/images/IMG_3992.jpg" // Uncomment and add your avatar image to public/images/
+    avatar: "../images/IMG_3992.jpg" // Uncomment and add your avatar image to public/images/
   },
   social: {
     github: "https://github.com/cooptacular",
