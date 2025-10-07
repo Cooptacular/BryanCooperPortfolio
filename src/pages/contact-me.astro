@@ -1,0 +1,136 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Contact | Cooptacular" description="Connect to discuss design, photography, writing, or if you're growing a team that needs some Cooptacular augmentation.">
+  <div class="contact-page">
+    <header class="page-header">
+      <h1 class="page-title">Contact</h1>
+      <p class="page-description"></p>
+      <hr class="page-rule" />
+    </header>
+
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2>Holler If You Need Me</h2>
+        <p>
+          Hit me up if you need some Cooptacular on your team. I'm fluent in design, photography, writing, woodworking, and startup consultation.
+        </p>
+        
+        <div class="contact-links">
+          <a href="mailto:bryanrcooper7@gmail.com" class="contact-link">
+            <span class="contact-label">Email</span>
+            bryanrcooper7@gmail.com
+          </a>
+           <a href="https://www.linkedin.com/in/bryanrcooper/" class="contact-link" target="_blank">
+            <span class="contact-label">LinkedIn</span>
+            Bryan Cooper
+          </a>
+          <a href="https://github.com/cooptacular" class="contact-link" target="_blank">
+            <span class="contact-label">GitHub</span>
+            @Cooptacular
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .contact-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: calc(var(--grid-unit) * 8);
+  }
+
+  .page-title {
+    font-family: var(--font-heading-primary);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: calc(var(--grid-unit) * 3);
+  }
+
+  .page-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: calc(var(--grid-unit) * 4);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-rule {
+    height: 4px;
+    background-color: var(--color-accent);
+    border: none;
+    width: 120px;
+    margin: 0 auto;
+  }
+
+  .contact-content {
+    line-height: 1.7;
+  }
+
+  .contact-info h2 {
+    font-family: var(--font-heading-secondary);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: calc(var(--grid-unit) * 3);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--grid-unit) * 2);
+    margin-top: calc(var(--grid-unit) * 4);
+  }
+
+  .contact-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: calc(var(--grid-unit) * 2);
+    border: 2px solid var(--color-border);
+    transition: all 0.2s ease;
+  }
+
+  .contact-link:hover,
+  .contact-link:focus {
+    border-color: var(--color-accent);
+    background-color: var(--color-surface);
+  }
+
+  .contact-label {
+    font-family: var(--font-heading-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: calc(var(--grid-unit) / 2);
+  }
+
+  .contact-link:hover .contact-label,
+  .contact-link:focus .contact-label {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .page-description {
+      font-size: 1.125rem;
+    }
+  }
+</style>
