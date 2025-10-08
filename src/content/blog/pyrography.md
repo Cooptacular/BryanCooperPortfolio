@@ -10,7 +10,7 @@ tags: ["Pyrography", "Art"]
 
 Pyrography is the art of wood burning, and is the only art form that chemically changes the medium. I learned this craft from my grandfather, who is my guiding star in this Universe. From the coaster under my coffee, to the lid on our recipe box, his work inspires me in the nooks of my home as I bounce around throughout the day. I started wood burning myself long ago, and practice it far less than I like. 
 
-> Pyrography is meditative, it requires presence and confidence in each stroke. If you dwell too long your lines blur and bloom, and you cannot erase. 
+> Pyrography is meditative, it requires presence and confidence in each stroke. If you dwell too long your lines blur and bloom.
 
 The practice engages all the senses of the artist. You see your wooden canvas transforming through pyrolysis, as the hot metal blade converts your strokes to charcoal and ash. Your olfactory nerves are filled with the smell of burning wood. The soft hissing of hot metal burning the wood vibrates in your auditory system. You can even taste the delicate plumes of smoke. 
 
