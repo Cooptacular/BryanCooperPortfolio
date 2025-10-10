@@ -1,0 +1,578 @@
+---
+import Layout from "../components/Layout.astro";
+const mdPostsGlob = import.meta.glob("../content/blog/*.md", { eager: true });
+const mdxPostsGlob = import.meta.glob("../content/blog/*.mdx", { eager: true });
+
+const allPosts = [
+  ...Object.values(mdPostsGlob),
+  ...Object.values(mdxPostsGlob),
+] as any[];
+const sortedPosts = allPosts
+  .sort(
+    (a: any, b: any) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime(),
+  )
+  .slice(0, 3);
+---
+
+<Layout
+  title="The Cooptacular Experience"
+  description="A personal portfolio built with Astro and the Volks Typo theme."
+  showSidebar={false}
+>
+  <div class="landing-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Design</h1>
+        <p class="hero-description">
+          Product Design and UX, Graphic Design, and Woodworking.
+        </p>
+      </div>
+    </section>
+    <section class="features" id="features">
+      <div class="container">
+        <!-- <h2 class="section-title">Personal</h2> -->
+        <div class="hero-actions">
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3 class="feature-title">Product Design</h3>
+            <p class="feature-description">
+              In my career as a Product Manager, I have served in most of my roles as a hybrid Product and UX Designer. I bring my user-centric design thinking framework with a natural joy in connecting with people to design products and platforms that make the hard things easier. I've designed a 3D eCommerce Platform, a CRM for Healthcare Systems, and Resident Management and Payment Portals for SMB through Enterprise Property Management clients.</p>
+            <br><br>
+            
+          </div>
+          <div class="feature-card">
+            <h3 class="feature-title">Graphic Design</h3>
+            <p class="feature-description">
+              I've been practicing graphic design for over two decades, and have explored many styles and mediums. 
+              Some of my favorite projects have been label designs for wine and beer, as well as ultimate discs and jerseys.
+              I'm constantly sketching and illustrating, and love to pair my writing with drawings to paint my pictures.
+            </p>
+            <br><br>
+            <a href={`${import.meta.env.BASE_URL}graphic-design`} class="btn btn-primary">Graphic Design</a>
+          </div>
+          <div class="feature-card">
+            <h3 class="feature-title">Woodworking</h3>
+            <p class="feature-description">
+              While I spend a great deal of my day behind a computer screen, I love to build and craft with my hands in the phyusical world. 
+              I've enjoyed growing the library of tools in my garage woodshop, and have built arcades, coffee tables, and other cabinetry for my home. 
+              I love to be surounded by pieces of craftsmanship that tell my story, and the stories of the ones I built them with. 
+              My father is my inspriation in the woodshop, and most of the projecst I share on this site were built with him at my side.</p> 
+              <br><br>
+              <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-primary">Woodworking</a>
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3 class="feature-title">Video and Animation</h3>
+            <p class="feature-description">
+              I love to tell stories, and video has always inspired me as a medium for bringing motion and composition to elevate a story. 
+              In my freetime I love to watch fantasy and sci-fi films, as well as animated productions. 
+              I haven't dove as deep as I like into video production, but I am not short of a desire to experiment and practice more forms of creatitivy.
+            </p>
+            <br><br>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .landing-page {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .hero {
+      text-align: center;
+      padding: calc(var(--grid-unit) * 12) 0 calc(var(--grid-unit) * 8);
+      /* background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%); */
+      background:
+        url("../assets/AspenHero.png"),
+        linear-gradient(
+          135deg,
+          var(--color-surface) 0%,
+          var(--color-background) 100%
+        );
+      background-size: cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading-primary);
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 0.9;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: calc(var(--grid-unit) * 3);
+    }
+
+    .hero-description {
+      font-size: 1.375rem;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      margin-bottom: calc(var(--grid-unit) * 4);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-rule {
+      height: 6px;
+      background-color: var(--color-accent);
+      border: none;
+      width: 150px;
+      margin: 0 auto calc(var(--grid-unit) * 4);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: calc(var(--grid-unit) * 2);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-heading-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: calc(var(--grid-unit) * 1.5) calc(var(--grid-unit) * 3);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: white;
+      border: 2px solid var(--color-accent);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: transparent;
+      color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      border: 2px solid var(--color-border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background-color: var(--color-text-primary);
+      color: var(--color-background);
+      transform: translateY(-2px);
+    }
+
+    /* Dark mode button styles */
+    :global([data-theme="dark"]) .btn-primary {
+      background-color: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+
+    :global([data-theme="dark"]) .btn-primary:hover,
+    :global([data-theme="dark"]) .btn-primary:focus {
+      background-color: transparent;
+      color: var(--color-accent);
+    }
+
+    :global([data-theme="dark"]) .btn-secondary {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      border-color: var(--color-border);
+    }
+
+    :global([data-theme="dark"]) .btn-secondary:hover,
+    :global([data-theme="dark"]) .btn-secondary:focus {
+      background-color: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+
+    .features {
+      padding: calc(var(--grid-unit) * 8) 0;
+    }
+
+    .section-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: calc(var(--grid-unit) * 6);
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: calc(var(--grid-unit) * 4);
+    }
+
+    .feature-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: calc(var(--grid-unit) * 4);
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .feature-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: calc(var(--grid-unit) * 1.5);
+    }
+
+    .feature-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Typography Showcase */
+    .typography-showcase {
+      padding: calc(var(--grid-unit) * 8) 0;
+      background-color: var(--color-surface);
+    }
+
+    .typography-description {
+      text-align: center;
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: calc(var(--grid-unit) * 6);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .typography-samples {
+      display: grid;
+      gap: calc(var(--grid-unit) * 6);
+    }
+
+    .type-sample {
+      text-align: center;
+      padding: calc(var(--grid-unit) * 4);
+      background-color: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+
+    .sample-h1 {
+      font-family: var(--font-heading-primary);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 1.1;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .sample-h2 {
+      font-family: var(--font-heading-secondary);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.2;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .sample-body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      margin-bottom: calc(var(--grid-unit) * 2);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sample-code {
+      font-family: var(--font-mono);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: calc(var(--grid-unit)) calc(var(--grid-unit) * 1.5);
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: calc(var(--grid-unit) * 2);
+      color: var(--color-text-primary);
+    }
+
+    .type-meta {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    .demo-section {
+      padding: calc(var(--grid-unit) * 8) 0;
+    }
+
+    .demo-description {
+      text-align: center;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: calc(var(--grid-unit) * 6);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .demo-posts {
+      display: grid;
+      gap: calc(var(--grid-unit) * 4);
+      margin-bottom: calc(var(--grid-unit) * 6);
+    }
+
+    .demo-post-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: calc(var(--grid-unit) * 3);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .demo-post-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+    }
+
+    .demo-post-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: calc(var(--grid-unit));
+    }
+
+    .demo-post-title a {
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    .demo-post-title a:hover,
+    .demo-post-title a:focus {
+      color: var(--color-accent);
+    }
+
+    .demo-post-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: calc(var(--grid-unit));
+      margin-bottom: calc(var(--grid-unit) * 1.5);
+    }
+
+    .demo-post-date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-post-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-post-reading-time::before {
+      content: "•";
+      margin: 0 calc(var(--grid-unit) / 2);
+      color: var(--color-border);
+    }
+
+    .demo-post-excerpt {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .demo-post-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--grid-unit) / 2);
+    }
+
+    .demo-category {
+      background-color: var(--color-text-primary);
+      color: white;
+      padding: calc(var(--grid-unit) / 4) calc(var(--grid-unit) / 2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+    }
+
+    /* Dark mode demo category styles */
+    :global([data-theme="dark"]) .demo-category {
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+
+    .demo-actions {
+      text-align: center;
+    }
+
+    .installation {
+      padding: calc(var(--grid-unit) * 8) 0;
+      background-color: var(--color-surface);
+    }
+
+    .install-steps {
+      display: grid;
+      gap: calc(var(--grid-unit) * 4);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: calc(var(--grid-unit) * 2);
+      align-items: start;
+    }
+
+    .step-number {
+      font-family: var(--font-heading-primary);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      margin: 0;
+    }
+
+    .step-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: calc(var(--grid-unit));
+    }
+
+    .code-block {
+      background-color: var(--color-text-primary);
+      color: var(--color-background);
+      padding: calc(var(--grid-unit) * 2);
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .code-block code {
+      font-family: var(--font-mono);
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--color-surface) 0%,
+          var(--color-background) 100%
+        );
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .hero-description {
+        font-size: 1.125rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .step-number {
+        font-size: 2rem;
+      }
+    }
+  </style></Layout
+>
