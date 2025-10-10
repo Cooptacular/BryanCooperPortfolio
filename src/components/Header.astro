@@ -1,6 +1,8 @@
 ---
 import { config } from '../config';
 import ThemeToggle from './ThemeToggle.astro';
+import Image from 'astro/components/Image.astro';
+import yeti from '../assets/YetiMon.svg';
 
 const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: '' };
 ---
@@ -18,7 +20,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     
     <div class="site-title">
       <a href={base}>
-        <img src={base + "YetiMon-Title.svg"} alt={config.title} class="title-svg" />
+        <Image src={yeti} alt={config.title} class="title-svg" />
       </a>
     </div>
     
