@@ -8,6 +8,8 @@ tags: ["Pyrography", "Art"]
 ---
 # The Art of Writing with Fire
 
+![Great Blue Heron](../../assets/pyro/Heron.png)
+
 Pyrography is the art of wood burning, and is the only art form that chemically changes the medium. I learned this craft from my grandfather, who is my guiding star in this Universe. From the coaster under my coffee, to the lid on our recipe box, his work inspires me in the nooks of my home as I bounce around throughout the day. I started wood burning myself long ago, and practice it far less than I like. 
 
 > Pyrography is meditative, it requires presence and confidence in each stroke. If you dwell too long your lines blur and bloom.
