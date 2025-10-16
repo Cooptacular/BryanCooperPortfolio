@@ -2,20 +2,64 @@
 title: "Dopple 3D Platform"
 date: "2025-10-10"
 description: "UX Portfolio for Dopple 3D Platform"
-excerpt: "My role at Dopple"
+excerpt: "Role: Founding Product Manager, Product Designer"
 categories: ["UX", "Design" ]
 tags: ["UX", "Design", "Product"]
 ---
 # The Dopple 3D Platform
-![Boat Config](../../assets/blogImg/Boat-Config-Loop.gif)
-At Dopple I was a founding Product Manager, and built two major iterations of the Dopple 3D Platform with a small, pre-series A startup team. In addition to my Sr Product Manager role, I served as the Co-Product Designer, collaborating with the Creative Director and UX Designer to design the full platform. The Dopple Platform allowed Clients and their creative teams to manage 3D ecommerce experiences, with a CMS for storing of their digital twins, a 3D Web Editor for setting up their 3D projects, and an Experience Designer for creating immersive 3D experiences for the web. Once Published, a 3D Product could be embedded on any commerce site, from Shopify to a custom Wordpress site.
 
-![Managing Projects](../../assets/blogImg/WorkspaceHome.png)
-Built to scale and serve both enterprise brands through SMBs, Users can organize their projects in various workspaces. Agencies especially took to organzing client's assets into segmented workspaces to keep IP and data clean.
+<iframe
+  src="https://player.mux.com/JCAK7J01f0201XK9gM8AoazG00Xa7XPWPtCGgSnfGf1iPgs?metadata-video-title=Dopple-Luggage-Config-Highlight&video-title=Dopple-Luggage-Config-Highlight"
+  style="width: 100%; border: none; aspect-ratio: 450/253;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+  allowfullscreen
+></iframe>
+<br><br>
+At Dopple I was a founding Product Manager where I built and designed the Dopple 3D Platform with a small, seed-funded startup team. 
+In addition to my Senior Product Manager role, I served as the Co-Product Designer.
 
-As the Dopple Platform evolved, the fomerly complex and expert workflows became accessible and intuitive, enabling any creative marketer or web developer to build out immersive 3D experiences.  
+## Platform Highlights
+* CMS/Content Library for managing 3D Product digital twins
+* Experience Designer workflow for setting up interactive elements, such as configurability, augmented reality, animations and cameras, and hotspots
+* Virtual Studio for generating lifestyle imagery withg AI-generated scenes
+3D Editor for Artists and Creative Users to manage and modify all aspects of the 3D scene; hierarchy tree for easily editing models/materials/textures, lights, cameras, animations, and hotspots
+* Live Preview with configuration and AR UI menus pre-generated
+* Integration embed code generation for pre-set implementation
+* Support for GLB and glTF and Khronos Material Extensions 
+* Version Control and Whitelisting for A/B testing and full control over content distribution
+
+### Live Preview
+Users are able to preview live performance and UX of their 3D Products without writing any code.
 ![Live Preview](../../assets/blogImg/Dopple-LivePreview.png)
+
+### Augmented Reality
+Augmented Reality out-of-the-box for all 3D Products. Scan this QR code to see the Dopple Mixer in your space.
+![Augmented Reality](../../assets/blogImg/mixerAR.png)
+
+### 3D Editor with Scene Hierarchy
+Artists and Creatives can manage all aspects of the 3D scene with a visual hierarchy.
+![Animations](../../assets/blogImg/Dopple-Animation.png)
+![Editor](../../assets/blogImg/Dopple-Editor.png)
+
+### Experience Designer
+The Experience Designer offered a visual UX to setup the 3D experience.
 ![Hotspots](../../assets/blogImg/Dopple-Hotspots.png)
 
-Expert Users such as 3D Artists were able to setup complex projects in the 3D Editor, tuning the fidelity and aesthetics to create photo-realistic 3D for the web.  
-![Editor](../../assets/blogImg/Dopple-Editor.png)
+### Virtual Studio
+Marketers and brands can generate batches of virtual photography and place all the SKUs of their products in AI-generated scenes for product markeing and ecommerce imagery.
+
+![Studio Feature](../../assets/blogImg/Dopple-VirtualStudio.png)
+![AI Photo](../../assets/blogImg/Dopple-VirtualStudio-AI.png)
+
+### Template Generation for 3D Implementations 
+Once published, Users can take the generated embed code and easily implement to their commerce site.
+
+![Implementation Code](../../assets/blogImg/Dopple-Implementation.png)
+
+Built to scale and serve both enterprise brands through SMBs, Users can organize their projects in various workspaces. Agencies especially took to organzing client's assets into segmented workspaces to keep IP and data clean.
+
+![Projects](../../assets/blogImg/WorkspaceHome.png)
+
+
+
+
