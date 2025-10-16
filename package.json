@@ -32,6 +32,7 @@
     "typography"
   ],
   "dependencies": {
+    "@astro-community/astro-embed-youtube": "^0.5.7",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
     "@fancyapps/ui": "^6.0.33",
