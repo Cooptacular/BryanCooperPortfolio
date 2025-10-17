@@ -1,18 +1,17 @@
 ---
-import Layout from "../components/Layout.astro";
-const mdPostsGlob = import.meta.glob("../content/blog/*.md", { eager: true });
-const mdxPostsGlob = import.meta.glob("../content/blog/*.mdx", { eager: true });
+import Layout from '../components/Layout.astro';
+import { Image } from 'astro:assets';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/highlights/*.{jpg,jpeg,png,webp}",
+);
 
-const allPosts = [
-  ...Object.values(mdPostsGlob),
-  ...Object.values(mdxPostsGlob),
-] as any[];
+const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
+const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
+
+const allPosts = [...Object.values(mdPostsGlob), ...Object.values(mdxPostsGlob)] as any[];
 const sortedPosts = allPosts
-  .sort(
-    (a: any, b: any) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime(),
-  )
+  .sort((a: any, b: any) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
   .slice(0, 3);
 ---
 
@@ -31,7 +30,7 @@ const sortedPosts = allPosts
         </p>
           <a href={`${import.meta.env.BASE_URL}ux`} class="btn btn-primary">UX Design</a>
           <a href={`${import.meta.env.BASE_URL}graphicdesign`} class="btn btn-primary">Graphic Design</a>
-          <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-primary">Woodworking</a>
+          <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-primary">Woodshop</a>
       </div>
     </section>
     <section class="features" id="features">
@@ -85,8 +84,101 @@ const sortedPosts = allPosts
       </div>
     </section>
   </div>
+<section class="justified-gallery" id="photoswipe">
+    {
+      Object.entries(images).map(async ([_path, image], index) => {
+        const { default: imageData } = await image();
+        return (
+          <a
+            style={`--width: ${imageData.width}; --height: ${imageData.height};`}
+            href={imageData.src}
+            target="_blank"
+            data-fancybox="gallery"
+          >
+            <Image
+              format="webp"
+              src={imageData}
+              alt=""
+              height={400}
+              loading={index < 20 ? "eager" : "lazy"}
+            />
+          </a>
+        );
+      })
+    }
+  </section> 
+  <script>
+  import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
+  Fancybox.bind("[data-fancybox]", {
+    theme: "auto",
+    mainStyle: {
+      "--f-button-width": "44px",
+      "--f-button-height": "44px",
+      "--f-button-border-radius": "50%",
+      "--f-toolbar-padding": "16px",
+    },
+    Carousel: {
+      Arrows: true,
+      Toolbar: {
+        display: {
+          left: [],
+          middle: [],
+          right: ["close"],
+        },
+      },
+      transition: "slide",
+    },
+  });
+</script>  
+</Layout> 
   <style>
+    .justified-gallery {
+      --padding: max(2.5vw, 12px);
+      --space: max(2.5vw, 12px);
+      --min-height: clamp(200px, 20vw, 300px);
+
+      padding: var(--padding);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space);
+  }
+
+  a {
+    flex-grow: calc(var(--width) * (100000 / var(--height)));
+    flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+    aspect-ratio: var(--width) / var(--height);
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.05s ease-in-out;
+  }
+
+  a img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  a:focus-visible {
+    outline: 3px solid var(--outline);
+    outline-offset: 2px;
+    transform: scale(1.05);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  a.hidden {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+  }
+
+  &::after {
+    content: " ";
+    flex-grow: 1000000000;
+  }
+    
     .landing-page {
       width: 100%;
     }
@@ -580,5 +672,4 @@ const sortedPosts = allPosts
         font-size: 2rem;
       }
     }
-  </style></Layout
->
+  </style>
