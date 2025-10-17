@@ -1,5 +1,11 @@
 ---
 import Layout from '../components/Layout.astro';
+import { Image } from 'astro:assets';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/blogImg/dopple/*.{jpg,jpeg,png,webp}",
+);
+
 const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
 const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
 const base = import.meta.env.BASE_URL;
@@ -32,24 +38,120 @@ const sortedPosts = allPosts
               Dopple creates immersive shopping experiences through 3D configurators and AR. 
               The Platform enables SMBs, Enterprises, and Marketplaces with content management, and web experience design, with a SDK and APIs that integrate with eCommerce platforms such as Shopify, BigCommerce, Shopware, Magento, and custom headless websites.</p>
           <br><br>
-          <a href={`${base}blog/dopple3D`} class="btn btn-primary">
-              Dopple Blog Post
-            </a>
+          <a href={`${base}blog/dopple3D`} class="btn btn-primary">Dopple Blog Post</a>
           </div>
           <div class="feature-card">
             <h3 class="feature-title">Healthgrades CRM</h3>
             <p class="feature-description">Heathgrades is a CRM for Enterprise Hospital Systems, using predictive modeling and target audience segmentation across omni-channel marketing automation to maximize ROI and reach for their patient populations.</p>
+            <br><br>
+            Blog post coming soon!
           </div>
           <div class="feature-card">
             <h3 class="feature-title">Yapstone Payments Platform</h3>
             <p class="feature-description">Yapstone is a leading payment processing platform for the vacation rental industry. They provide property owners and booking platforms with integrated payments and renter management solutions.</p>
+            <br><br>
+            Blog post coming soon!
           </div>
         </div>
       </div>
     </section>
+    <section class="demo-section" id="photo-gallery">
+    <h2 class="section-title">Highlights</h2>
+    <section class="justified-gallery" id="photoswipe">
+        {
+          Object.entries(images).map(async ([_path, image], index) => {
+            const { default: imageData } = await image();
+            return (
+              <a
+                style={`--width: ${imageData.width}; --height: ${imageData.height};`}
+                href={imageData.src}
+                target="_blank"
+                data-fancybox="gallery"
+              >
+                <Image
+                  format="webp"
+                  src={imageData}
+                  alt=""
+                  height={400}
+                  loading={index < 20 ? "eager" : "lazy"}
+                />
+              </a>
+            );
+          })
+        }
+      </section> 
+  <script>
+  import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+
+  Fancybox.bind("[data-fancybox]", {
+    theme: "auto",
+    mainStyle: {
+      "--f-button-width": "44px",
+      "--f-button-height": "44px",
+      "--f-button-border-radius": "50%",
+      "--f-toolbar-padding": "16px",
+    },
+    Carousel: {
+      Arrows: true,
+      Toolbar: {
+        display: {
+          left: [],
+          middle: [],
+          right: ["close"],
+        },
+      },
+      transition: "slide",
+    },
+  });
+</script>    
 </Layout>
 
 <style>
+   .justified-gallery {
+      --padding: max(2.5vw, 12px);
+      --space: max(2.5vw, 12px);
+      --min-height: clamp(200px, 20vw, 300px);
+
+      padding: var(--padding);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space);
+  }
+
+  a {
+    flex-grow: calc(var(--width) * (100000 / var(--height)));
+    flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+    aspect-ratio: var(--width) / var(--height);
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.05s ease-in-out;
+  }
+
+  a img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  a:focus-visible {
+    outline: 3px solid var(--outline);
+    outline-offset: 2px;
+    transform: scale(1.05);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  a.hidden {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+  }
+
+  &::after {
+    content: " ";
+    flex-grow: 1000000000;
+  }
   .landing-page {
     width: 100%;
   }
