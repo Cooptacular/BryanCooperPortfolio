@@ -55,8 +55,9 @@ const sortedPosts = allPosts
         </div>
       </div>
     </section>
-    <section class="demo-section" id="photo-gallery">
+
     <h2 class="section-title">Highlights</h2>
+    
     <section class="justified-gallery" id="photoswipe">
         {
           Object.entries(images).map(async ([_path, image], index) => {
@@ -79,7 +80,7 @@ const sortedPosts = allPosts
             );
           })
         }
-      </section> 
+    </section> 
   <script>
   import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
@@ -92,7 +93,7 @@ const sortedPosts = allPosts
       "--f-toolbar-padding": "16px",
     },
     Carousel: {
-      Arrows: true,
+      Arrows: false,
       Toolbar: {
         display: {
           left: [],
