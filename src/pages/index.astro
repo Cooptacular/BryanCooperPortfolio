@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import cooparcadeImg from '../assets/blogImg/cooparcade/Cooparcade-Denver.png';
 import heron from '../assets/pyro/Heron.png';
 import heronWineLabel from '../assets/graphic-design/SanctuaryFarmWines-Heron.png';
-// import dartBoardTheBridge from '../assets/woodworking/DartBoard-TheBridge.png';
 import dartBoardYetiMon from '../assets/woodworking/DartBoard-YetiMon.png';
 import Layout from '../components/Layout.astro';
 const base = import.meta.env.BASE_URL;
@@ -25,50 +24,12 @@ const sortedPosts = allPosts
         <p class="hero-subtitle">Seek Those Who Fan Your Flames</p>
         <p class="hero-description">
           We're just a biological speculation, sittin' here, vibratin', and we don't know what we're vibratin' about. 
-          <br>- George Clinton, Parliament Funkadelic
-
+          <br />- George Clinton, Parliament Funkadelic
         <hr class="hero-rule" />
         <div class="hero-actions">
           <a href={`${import.meta.env.BASE_URL}contact`} class="btn btn-primary">Contact</a>
         </div>
       </div>
-    </section>
-    <section class="features" id="features">
-      <div class="container">
-        <h2 class="section-title">The Cooptacular Experience</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <h3 class="feature-title">Art and Design</h3>
-            <p class="feature-description">I've been drawn to drawing since I was a wee lad, and of all my interests and hobbies I identify most as a designer. 
-              From wine labels to multi-million dollar software platforms, I've had the privilege to share my passion for design in my professional career and in my everyday life as a creative. 
-            </p>
-            <br><br>
-            <a href={`${import.meta.env.BASE_URL}design`} class="btn btn-secondary">Design</a>
-          </div>
-          <div class="feature-card">
-            <h3 class="feature-title">Writing</h3>
-            <p class="feature-description">My grandfather is my guiding light in the Universe, and a prolific writer. 
-              He has mentored me along my journey through life in many ways, and especially with writing. 
-              I will share my thoughts on the Blog section of this site, from project process to prose.</p>
-            <br><br><br>
-            <a href={`${import.meta.env.BASE_URL}blog`} class="btn btn-secondary">Blog</a>
-          </div>
-          <div class="feature-card">
-            <h3 class="feature-title">Photography</h3>
-            <p class="feature-description">I love to get outdoors and along with my sketchpad I seldom leave my house without my camera. 
-              Nature especially inspires me, and much of the subjects I capture are trees, creatures, and things with wings.</p>
-              <br><br><br>
-            <a href={`${import.meta.env.BASE_URL}photography`} class="btn btn-secondary">Photography</a>
-          </div>
-          <div class="feature-card">
-            <h3 class="feature-title">Woodshop</h3>
-            <p class="feature-description">
-              I like to work with my hands, and Woodworking is the perfect escape from the blue light. Any project is a good excuse to get in the woodshop with my dad.
-              <br><br>
-              <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-secondary">Woodworking</a>
-            </p>
-          </div>
-        </div>
     </section>
     <section> 
       <h2 class="section-title">Highlights</h2> 
@@ -77,9 +38,8 @@ const sortedPosts = allPosts
               <h3 class="feature-title">Cooparcade - Custom Arcade Cabinet</h3>
               <p class="feature-description">
                 <Image src={cooparcadeImg} alt="The Cooparcade in a living room setting" width={400} />
-                <br><br>
+                <br /><br />
                 <a href={`${import.meta.env.BASE_URL}blog/cooparcade`} class="btn btn-secondary">Blog Post</a>
-                <br>
               </p>
           </div>
         <div class="feature-card">
@@ -87,30 +47,60 @@ const sortedPosts = allPosts
           <p class="feature-description">
             <Image src={heron} alt="The Cooparcade in a living room setting" width={400} />
             <br><br>
-            <a href={`${import.meta.env.BASE_URL}blog/pyrography`} class="btn btn-secondary">Pyrography Gallery</a>
-            <br>
+            <a href={`${import.meta.env.BASE_URL}blog/pyrography`} class="btn btn-secondary">Blog Post</a>
+            <br />
           </p>
         </div>
         <div class="feature-card">
-          <h3 class="feature-title">Custom Dartboards</h3>
+          <h3 class="feature-title">Beer & Wine Labels</h3>
           <p class="feature-description">
-            <Image src={dartBoardYetiMon} alt="Mountains and pyrographic designs on a custom dartboard" width={400} />
+            <Image src={heronWineLabel} alt="Mountains and pyrographic designs on a custom dartboard" width={400} />
             <br><br>
-            <a href={`${import.meta.env.BASE_URL}blog/dartboards`} class="btn btn-secondary">Blog Post</a>
+            <a href={`${import.meta.env.BASE_URL}blog/labeldesign`} class="btn btn-secondary">Blog Post</a>
             <br>
           </p>
         </div>
-        <!-- <div class="feature-card">
-          <h3 class="feature-title">Graphic Design - Wine Labels</h3>
-          <p class="feature-description">
-            <Image src={heron} alt="heronWineLabel" width={400} />
-            <br><br>
-            <a href={`${import.meta.env.BASE_URL}blog/graphic-design`} class="btn btn-secondary">Graphic Design</a>
-            <br>
-          </p>
-        </div>
-      </div> -->
+      </div>
     </section>
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">The Cooptacular Experience</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3 class="feature-title">Art and Design</h3>
+              <p class="feature-description">I've been drawn to drawing since I was a wee lad, and of all my interests and hobbies I identify most as a designer. 
+                From wine labels to multi-million dollar software platforms, I've had the privilege to share my passion for design in my professional career and in my everyday life as a creative. 
+              </p>
+              <br><br>
+              <a href={`${import.meta.env.BASE_URL}design`} class="btn btn-secondary">Design</a>
+            </div>
+            <div class="feature-card">
+              <h3 class="feature-title">Writing</h3>
+              <p class="feature-description">My grandfather is my guiding light in the Universe, and a prolific writer. 
+                He has mentored me along my journey through life in many ways, and especially with writing. 
+                I will share my thoughts on the Blog section of this site, from project process to prose.</p>
+              <br><br><br>
+              <a href={`${import.meta.env.BASE_URL}blog`} class="btn btn-secondary">Blog</a>
+            </div>
+            <div class="feature-card">
+              <h3 class="feature-title">Photography</h3>
+              <p class="feature-description">I love to get outdoors and along with my sketchpad I seldom leave my house without my camera. 
+                Nature especially inspires me, and much of the subjects I capture are trees, creatures, and things with wings.</p>
+                <br><br><br>
+              <a href={`${import.meta.env.BASE_URL}photography`} class="btn btn-secondary">Photography</a>
+            </div>
+            <div class="feature-card">
+              <h3 class="feature-title">Woodshop</h3>
+              <p class="feature-description">
+                I like to work with my hands, and Woodworking is the perfect escape from the blue light. Any project is a good excuse to get in the woodshop with my dad.
+                <br><br>
+                <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-secondary">Woodworking</a>
+              </p>
+            </div>
+          </div>
+        </div>
+    </section>
+    </div>
 </Layout>
 
 <style>
