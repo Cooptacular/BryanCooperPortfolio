@@ -30,6 +30,7 @@ export interface Props {
 }
 
 const { title, description, showSidebar = true, image, type, publishedTime, canonical } = Astro.props;
+// Note - added data-theme="light" to html tag to set default theme to light and override system preference
 ---
 
 <!DOCTYPE html>
