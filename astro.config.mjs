@@ -8,7 +8,8 @@ export default defineConfig({
   site: 'https://www.cooptacular.com',
   // Only use base path for GitHub Pages deployments
   // For Netlify/Vercel, leave this undefined (no base path)
-  base: process.env.BASE_PATH || undefined,
+  base: undefined,
+  
   integrations: [mdx()],
   markdown: {
     shikiConfig: {
