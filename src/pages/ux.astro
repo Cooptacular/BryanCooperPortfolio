@@ -22,8 +22,8 @@ const sortedPosts = allPosts
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Product and UX</h1>
-        <p class="hero-description">
-          Professional Product and UX Design work. 
+        <p class="hero-subtitle">
+          Professional Product and UX Design 
         </p>
       </div>
       <a href={`${import.meta.env.BASE_URL}design`} class="btn btn-secondary">Back to Design</a>
@@ -55,9 +55,6 @@ const sortedPosts = allPosts
         </div>
       </div>
     </section>
-
-    <h2 class="section-title">Highlights</h2>
-    
     <section class="justified-gallery" id="photoswipe">
         {
           Object.entries(images).map(async ([_path, image], index) => {
@@ -73,7 +70,7 @@ const sortedPosts = allPosts
                   format="webp"
                   src={imageData}
                   alt=""
-                  height={400}
+                  height={1000}
                   loading={index < 20 ? "eager" : "lazy"}
                 />
               </a>
