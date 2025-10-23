@@ -19,9 +19,6 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
       <div class="hero-content">
         <h1 class="hero-title">Pyrography</h1>
         <p class="hero-subtitle">The Art of Writing with Fire</p>
-        <p class="hero-description">
-          Pyrography is the only art form that chemically changes the medium. I learned this craft from my grandfather, the Master Chemist, and my guiding star in this World.
-        </p>
     </section>
     <section class="justified-gallery" id="photoswipe">
     {
@@ -134,7 +131,9 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
   .hero {
     text-align: center;
     padding: calc(var(--grid-unit) * 12) 0 calc(var(--grid-unit) * 8);
-    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    /* background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%); */
+    background: url('../assets/pyro-hero.png'), linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    background-size: cover;
   }
 
   .hero-content {

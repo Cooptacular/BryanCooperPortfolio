@@ -23,11 +23,37 @@ const sortedPosts = allPosts
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Woodshop</h1>
-        <p class="hero-description">
-          Woodworking highlight projects. 
+        <p class="hero-subtitle">
+          Woodworking projects 
         </p>
       </div>
       <a href={`${import.meta.env.BASE_URL}design`} class="btn btn-secondary">Back to Design</a>
+    </section> 
+    <!-- <br />
+    <h2 class="section-title">Highlights</h2> -->
+    <section class="justified-gallery" id="photoswipe">
+      
+        {
+          Object.entries(images).map(async ([_path, image], index) => {
+            const { default: imageData } = await image();
+            return (
+              <a
+                style={`--width: ${imageData.width}; --height: ${imageData.height};`}
+                href={imageData.src}
+                target="_blank"
+                data-fancybox="gallery"
+              >
+                <Image
+                  format="webp"
+                  src={imageData}
+                  alt=""
+                  height={1000}
+                  loading={index < 20 ? "eager" : "lazy"}
+                />
+              </a>
+            );
+          })
+        }
     </section>    
     <section class="features" id="features">
       <div class="container">
@@ -56,57 +82,33 @@ const sortedPosts = allPosts
             <!-- <a href={`${base}blog/dartboards`} class="btn btn-primary">Dartboard Blog Post</a> -->
           </div>
         </div>
-      </div>
+    </div>
   </section>
-  <h2 class="section-title">Highlights</h2>
-    <section class="justified-gallery" id="photoswipe">
-      
-        {
-          Object.entries(images).map(async ([_path, image], index) => {
-            const { default: imageData } = await image();
-            return (
-              <a
-                style={`--width: ${imageData.width}; --height: ${imageData.height};`}
-                href={imageData.src}
-                target="_blank"
-                data-fancybox="gallery"
-              >
-                <Image
-                  format="webp"
-                  src={imageData}
-                  alt=""
-                  height={400}
-                  loading={index < 20 ? "eager" : "lazy"}
-                />
-              </a>
-            );
-          })
-        }
-    </section> 
-     <script>
-      import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+    <script>
+    import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
-      Fancybox.bind("[data-fancybox]", {
-        theme: "auto",
-        mainStyle: {
-          "--f-button-width": "44px",
-          "--f-button-height": "44px",
-          "--f-button-border-radius": "50%",
-          "--f-toolbar-padding": "16px",
-        },
-        Carousel: {
-          Arrows: false,
-          Toolbar: {
-            display: {
-              left: [],
-              middle: [],
-              right: ["close"],
-            },
+    Fancybox.bind("[data-fancybox]", {
+      theme: "auto",
+      mainStyle: {
+        "--f-button-width": "44px",
+        "--f-button-height": "44px",
+        "--f-button-border-radius": "50%",
+        "--f-toolbar-padding": "16px",
+      },
+      Carousel: {
+        Arrows: false,
+        Toolbar: {
+          display: {
+            left: [],
+            middle: [],
+            right: ["close"],
           },
-          transition: "slide",
         },
-      });
-    </script>
+        transition: "slide",
+      },
+    });
+  </script>
+  </div>
 </Layout>
 
 <style>

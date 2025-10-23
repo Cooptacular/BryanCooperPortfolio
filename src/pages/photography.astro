@@ -18,8 +18,8 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Photography</h1>
-        <p class="hero-description">
-          The World through my lens. 
+        <p class="hero-subtitle">
+          The World through my lens 
         </p>
       </div>
     </section>
@@ -38,7 +38,7 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
               format="webp"
               src={imageData}
               alt=""
-              height={400}
+              height={1000}
               loading={index < 20 ? "eager" : "lazy"}
             />
           </a>
@@ -46,8 +46,7 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
       })
     }
   </section>  
-    
- <script>
+  <script>
   import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
   Fancybox.bind("[data-fancybox]", {
@@ -70,7 +69,8 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
       transition: "slide",
     },
   });
-</script>   
+</script>
+</div>   
 </Layout>
 
 <style>
