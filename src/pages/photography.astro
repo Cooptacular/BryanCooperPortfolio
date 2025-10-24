@@ -5,7 +5,23 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/photos/*.{jpg,jpeg,png,webp}",
 );
+// Sort entries by filename (basename) and then resolve them to image metadata
+const imageEntries = Object.entries(images);
 
+// sort by the file name (handles numeric parts nicely)
+imageEntries.sort((a, b) => {
+  const aName = a[0].split('/').pop()?.toLowerCase() ?? '';
+  const bName = b[0].split('/').pop()?.toLowerCase() ?? '';
+  return aName.localeCompare(bName, undefined, { numeric: true, sensitivity: 'base' });
+});
+
+// preload/resolved ImageMetadata objects so the template gets a plain array (no Promises)
+const imageItems = await Promise.all(
+  imageEntries.map(async ([_path, resolver]) => {
+    const mod = await resolver();
+    return mod.default as ImageMetadata;
+  })
+);
 
 const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
 const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
@@ -24,10 +40,8 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
       </div>
     </section>
     <section class="justified-gallery" id="photoswipe">
-    {
-      Object.entries(images).map(async ([_path, image], index) => {
-        const { default: imageData } = await image();
-        return (
+      {
+        imageItems.map((imageData, index) => (
           <a
             style={`--width: ${imageData.width}; --height: ${imageData.height};`}
             href={imageData.src}
@@ -42,10 +56,9 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
               loading={index < 20 ? "eager" : "lazy"}
             />
           </a>
-        );
-      })
-    }
-  </section>  
+        ))
+      }
+    </section> 
   <script>
   import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
