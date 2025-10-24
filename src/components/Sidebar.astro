@@ -74,7 +74,7 @@ const categories = [...new Set(allPosts.flatMap((post: any) => post.frontmatter.
       <ul class="category-list">
         {categories.map(category => (
           <li class="category-item">
-            <a href={`${base}/categories/${category.toLowerCase()}`} class="category-link">
+            <a href={`${base}categories/${category.toLowerCase()}`} class="category-link">
               {category}
             </a>
           </li>
