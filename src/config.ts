@@ -30,7 +30,7 @@ export const config: SiteConfig = {
     linkedin: "https://linkedin.com/in/bryanrcooper",
     email: "bryanrcooper7@gmail.com"
   },
-  siteUrl: "https://volks-typo.example.com"
+  siteUrl: "https://www.cooptacular.com"
   // note to self: Replace with your actual site URL
 };
 
