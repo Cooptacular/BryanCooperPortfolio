@@ -40,6 +40,16 @@ const { title, description, showSidebar = true, image, type, publishedTime, cano
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/Yeti-Mon.svg" />
     <script is:inline src={import.meta.env.BASE_URL + 'theme-init.js'}></script>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-SBXKJJPL7N"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-SBXKJJPL7N');
+    </script>
+     <!-- end Google tag -->
     <SEO
       title={title}
       description={description}
