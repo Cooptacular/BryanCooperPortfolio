@@ -26,6 +26,7 @@ export const config: SiteConfig = {
   },
   social: {
     github: "https://github.com/cooptacular",
+    // instagram: "https://www.instagram.com/coopgramular/",
     //twitter: "https://twitter.com/cooptacular",
     linkedin: "https://linkedin.com/in/bryanrcooper",
     email: "bryanrcooper7@gmail.com"
