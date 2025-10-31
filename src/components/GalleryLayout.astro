@@ -1,0 +1,8 @@
+---
+
+---
+
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/highlights/*.{jpg,jpeg,png,webp}",
+);
