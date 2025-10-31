@@ -6,6 +6,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/highlights/*.{jpg,jpeg,png,webp}",
 );
 
+const base = import.meta.env.BASE_URL;
 const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
 const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
 
@@ -28,9 +29,9 @@ const sortedPosts = allPosts
         <p class="hero-subtitle">
           UX, Graphic Design, and Woodworking
         </p>
-          <a href={`${import.meta.env.BASE_URL}ux`} class="btn btn-primary">UX Design</a>
-          <a href={`${import.meta.env.BASE_URL}graphicdesign`} class="btn btn-primary">Graphic Design</a>
-          <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-primary">Woodshop</a>
+          <a href={`${base}ux`} class="btn btn-primary">UX Design</a>
+          <a href={`${base}graphicdesign`} class="btn btn-primary">Graphic Design</a>
+          <a href={`${base}woodworking`} class="btn btn-primary">Woodshop</a>
       </div>
     </section>
     <section class="justified-gallery" id="photoswipe">
@@ -64,7 +65,7 @@ const sortedPosts = allPosts
             <p class="feature-description">
               In my career as a Product Manager, I have always served as a hybrid Product and UX Designer. I bring my user-centric design thinking framework with a natural joy in connecting with people to design products and platforms that make the hard things easier. I've designed a 3D eCommerce Platform, a CRM for Healthcare Systems, and Resident Management and Payment Portals for SMB through Enterprise Property Management clients.</p>
             <br><br>
-            <a href={`${import.meta.env.BASE_URL}ux`} class="btn btn-secondary">UX Design</a>
+            <a href={`${base}ux`} class="btn btn-secondary">UX Design</a>
           </div>
           <div class="feature-card">
             <h3 class="feature-title">Graphic Design</h3>
@@ -74,7 +75,7 @@ const sortedPosts = allPosts
               I'm constantly sketching and illustrating, and love to pair my writing with drawings to paint my pictures.
             </p>
             <br>
-            <a href={`${import.meta.env.BASE_URL}graphicdesign`} class="btn btn-secondary">Graphic Design</a>
+            <a href={`${base}graphicdesign`} class="btn btn-secondary">Graphic Design</a>
           </div>
           <div class="feature-card">
             <h3 class="feature-title">Woodworking</h3>
@@ -84,7 +85,7 @@ const sortedPosts = allPosts
               I love to be surounded by pieces of craftsmanship that tell my story, and the stories of the ones I built them with. 
               My father is my inspriation in the woodshop, and most of the projecst I share on this site were built with him at my side.</p> 
               <br>
-              <a href={`${import.meta.env.BASE_URL}woodworking`} class="btn btn-secondary">Woodworking</a>
+              <a href={`${base}woodworking`} class="btn btn-secondary">Woodworking</a>
             </p>
         </div>
       </div>
