@@ -6,7 +6,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/photos/*.{jpg,jpeg,png,webp}",
 );
 
-
 const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
 const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
 
@@ -24,52 +23,48 @@ const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
       </div>
     </section>
     <section class="justified-gallery" id="photoswipe">
-    {
-      Object.entries(images).map(async ([_path, image], index) => {
-        const { default: imageData } = await image();
-        return (
-          <a
-            style={`--width: ${imageData.width}; --height: ${imageData.height};`}
-            href={imageData.src}
-            target="_blank"
-            data-fancybox="gallery"
-          >
-            <Image
-              format="webp"
-              src={imageData}
-              alt=""
-              height={1000}
-              loading={index < 20 ? "eager" : "lazy"}
-            />
-          </a>
-        );
-      })
-    }
-  </section>  
-  <script>
-  import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+        {
+          Object.entries(images).map(async ([_path, image], index) => {
+            const { default: imageData } = await image();
+            return (
+              <a
+                style={`--width: ${imageData.width}; --height: ${imageData.height};`}
+                href={imageData.src}
+                target="_blank"
+                data-fancybox="gallery"
+              >
+                <Image
+                  format="webp"
+                  src={imageData}
+                  alt=""
+                  height={1000}
+                  loading={index < 20 ? "eager" : "lazy"}
+                />
+              </a>
+            );
+          })
+        }
+      </section>      
+    <script>
+      import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
-  Fancybox.bind("[data-fancybox]", {
-    theme: "auto",
-    mainStyle: {
-      "--f-button-width": "44px",
-      "--f-button-height": "44px",
-      "--f-button-border-radius": "50%",
-      "--f-toolbar-padding": "16px",
-    },
-    Carousel: {
-      Arrows: false,
-      Toolbar: {
-        display: {
-          left: [],
-          middle: [],
-          right: ["close"],
+      Fancybox.bind("[data-fancybox]", {
+        theme: "auto",
+        mainStyle: {
+          "--f-button-width": "44px",
+          "--f-button-height": "44px",
+          "--f-button-border-radius": "50%",
+          "--f-toolbar-padding": "16px",
         },
-      },
-      transition: "slide",
-    },
-  });
-</script>
+        Carousel: {
+          Arrows: false,
+          Toolbar: {
+            display: { left: [], middle: [], right: ["close"] },
+          },
+          transition: "slide",
+        },
+      });
+    </script>
 </div>   
 </Layout>
 

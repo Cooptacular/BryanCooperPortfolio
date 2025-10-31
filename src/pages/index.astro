@@ -1,21 +1,38 @@
 ---
-import { Image } from 'astro:assets';
-import cooparcadeImg from '../assets/blogImg/cooparcade/Cooparcade-Denver.png';
-import heron from '../assets/pyro/Heron.png';
-import heronWineLabel from '../assets/graphic-design/SanctuaryFarmWines-Heron.png';
-import dartBoardYetiMon from '../assets/woodworking/DartBoard-YetiMon.png';
-import Layout from '../components/Layout.astro';
-const base = import.meta.env.BASE_URL;
-const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
-const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
+import { Image } from "astro:assets";
+import cooparcadeImg from "../assets/blogImg/cooparcade/Cooparcade-Denver.png";
+import heron from "../assets/pyro/Heron.png";
+import heronWineLabel from "../assets/graphic-design/SanctuaryFarmWines-Heron.png";
+import dartBoardYetiMon from "../assets/woodworking/DartBoard-YetiMon.png";
+import Layout from "../components/Layout.astro";
 
-const allPosts = [...Object.values(mdPostsGlob), ...Object.values(mdxPostsGlob)] as any[];
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/highlights/*.{jpg,jpeg,png,webp}",
+);
+
+const base = import.meta.env.BASE_URL;
+const mdPostsGlob = import.meta.glob("../content/blog/*.md", { eager: true });
+const mdxPostsGlob = import.meta.glob("../content/blog/*.mdx", { eager: true });
+
+const allPosts = [
+  ...Object.values(mdPostsGlob),
+  ...Object.values(mdxPostsGlob),
+] as any[];
 const sortedPosts = allPosts
-  .sort((a: any, b: any) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
+  .sort(
+    (a: any, b: any) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime(),
+  )
   .slice(0, 3);
 ---
 
-<Layout title="The Cooptacular Experience" description="A personal portfolio built with Astro and the Volks Typo theme." showSidebar={false}>
+<Layout
+  title="The Cooptacular Experience"
+  description="A personal portfolio built with Astro and the Volks Typo theme."
+  showSidebar={false}
+>
   <div class="landing-page">
     <!-- Hero Section -->
     <section class="hero">
@@ -23,87 +40,174 @@ const sortedPosts = allPosts
         <h1 class="hero-title">Bryan Cooper</h1>
         <p class="hero-subtitle">Seek Those Who Fan Your Flames</p>
         <p class="hero-description">
-          We're just a biological speculation, sittin' here, vibratin', and we don't know what we're vibratin' about. 
+          We're just a biological speculation, sittin' here, vibratin', and we
+          don't know what we're vibratin' about.
           <br />- George Clinton, Parliament Funkadelic
-        <hr class="hero-rule" />
-        <div class="hero-actions">
-          <a href={`${base}contact`} class="btn btn-primary">Contact</a>
-        </div>
-      </div>
-    </section>
-    <br />
-    <section> 
-      <div class="features-grid">
-        <div class="feature-card">
-              <h3 class="feature-title">Cooparcade - Custom Arcade Cabinet</h3>
-              <p class="feature-description">
-                <Image src={cooparcadeImg} alt="The Cooparcade in a living room setting" width={400} />
-                <br />
-                <a href={`${base}blog/cooparcade`} class="btn btn-secondary">Blog Post</a>
-              </p>
+          <hr class="hero-rule" />
+          <div class="hero-actions">
+            <a href={`${base}contact`} class="btn btn-primary">Contact</a>
           </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Great Blue Heron - Woodburning</h3>
-          <p class="feature-description">
-            <Image src={heron} alt="Great Blue Heron wood burning" width={400} />
-            <br />
-            <a href={`${base}blog/pyrography`} class="btn btn-secondary">Blog Post</a>
-          </p>
-        </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Graphic Design - Wine and Beer Labels</h3>
-          <p class="feature-description">
-            <Image src={heronWineLabel} alt="Mountains and pyrographic designs on a custom dartboard" width={400} />
-            <br />
-            <a href={`${base}blog/labeldesign`} class="btn btn-secondary">Blog Post</a>
-            <br>
-          </p>
-        </div>
+        </p>
       </div>
-    </section>
-    <section class="features" id="features">
-      <div class="container">
-        <h2 class="section-title">The Cooptacular Experience</h2>
+      </section>
+      <br />
+      <section>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3 class="feature-title">Cooparcade - Custom Arcade Cabinet</h3>
+            <p class="feature-description">
+              <Image
+                src={cooparcadeImg}
+                alt="The Cooparcade in a living room setting"
+                width={400}
+              />
+              <br />
+              <a href={`${base}blog/cooparcade`} class="btn btn-secondary"
+                >Blog Post</a
+              >
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3 class="feature-title">Great Blue Heron - Woodburning</h3>
+            <p class="feature-description">
+              <Image
+                src={heron}
+                alt="Great Blue Heron wood burning"
+                width={400}
+              />
+              <br />
+              <a href={`${base}blog/pyrography`} class="btn btn-secondary"
+                >Blog Post</a
+              >
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3 class="feature-title">Graphic Design - Wine and Beer Labels</h3>
+            <p class="feature-description">
+              <Image
+                src={heronWineLabel}
+                alt="Mountains and pyrographic designs on a custom dartboard"
+                width={400}
+              />
+              <br />
+              <a href={`${base}blog/labeldesign`} class="btn btn-secondary"
+                >Blog Post</a
+              >
+              <br />
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="features" id="features">
+        <div class="container">
+          <h2 class="section-title">The Cooptacular Experience</h2>
           <div class="features-grid">
             <div class="feature-card">
               <h3 class="feature-title">Art and Design</h3>
-              <p class="feature-description">I've been drawn to drawing since I was a wee lad, and of all my interests and hobbies I identify most as a designer. 
-                From wine labels to multi-million dollar software platforms, I've had the privilege of sharing my passion for design in my professional and personal life. 
+              <p class="feature-description">
+                I've been drawn to drawing since I was a wee lad, and of all my
+                interests and hobbies I identify most as a designer. From wine
+                labels to multi-million dollar software platforms, I've had the
+                privilege of sharing my passion for design in my professional
+                and personal life.
               </p>
               <br />
               <a href={`${base}design`} class="btn btn-secondary">Design</a>
             </div>
             <div class="feature-card">
               <h3 class="feature-title">Writing</h3>
-              <p class="feature-description">My grandfather is my guiding light in the Universe, and a prolific writer. 
-                He has mentored me along my journey through life in many ways, and especially with writing. 
-                I will share my thoughts on the Blog section of this site, from project process to prose.</p>
+              <p class="feature-description">
+                My grandfather is my guiding light in the Universe, and a
+                prolific writer. He has mentored me along my journey through
+                life in many ways, and especially with writing. I will share my
+                thoughts on the Blog section of this site, from project process
+                to prose.
+              </p>
               <br />
               <a href={`${base}blog`} class="btn btn-secondary">Blog</a>
             </div>
             <div class="feature-card">
               <h3 class="feature-title">Photography</h3>
-              <p class="feature-description">I love to get outdoors, and along with my sketchpad I seldom leave my house without my camera. 
-                Nature especially inspires me, and much of the subjects I capture are trees, creatures, and things with wings.</p>
-                <br />
-              <a href={`${base}photography`} class="btn btn-secondary">Photography</a>
+              <p class="feature-description">
+                I love to get outdoors, and along with my sketchpad I seldom
+                leave my house without my camera. Nature especially inspires me,
+                and much of the subjects I capture are trees, creatures, and
+                things with wings.
+              </p>
+              <br />
+              <a href={`${base}photography`} class="btn btn-secondary"
+                >Photography</a
+              >
             </div>
             <div class="feature-card">
               <h3 class="feature-title">Woodshop</h3>
               <p class="feature-description">
-                I like to work with my hands, and woodworking is the perfect escape from the blue light. Any project is a good excuse to get in the woodshop with my dad.
-                <br><br>
-                <a href={`${base}woodworking`} class="btn btn-secondary">Woodworking</a>
+                I like to work with my hands, and woodworking is the perfect
+                escape from the blue light. Any project is a good excuse to get
+                in the woodshop with my dad.
+                <br /><br />
+                <a href={`${base}woodworking`} class="btn btn-secondary"
+                  >Woodworking</a
+                >
               </p>
             </div>
           </div>
         </div>
-    </section>
-    </div>
-</Layout>
+      </section>
+      <h2 class="section-title-highlights">Highlights</h2>
+      <section class="justified-gallery" id="photoswipe">
+        <!-- Gallery Images -->
+        {
+          Object.entries(images).map(async ([_path, image], index) => {
+            const { default: imageData } = await image();
+            return (
+              <a
+                style={`--width: ${imageData.width}; --height: ${imageData.height};`}
+                href={imageData.src}
+                target="_blank"
+                data-fancybox="gallery"
+              >
+                <Image
+                  format="webp"
+                  src={imageData}
+                  alt=""
+                  height={1000}
+                  loading={index < 20 ? "eager" : "lazy"}
+                />
+              </a>
+            );
+          })
+        }
+      </section>
+      <script>
+        import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
-<style>
-  .justified-gallery {
+        Fancybox.bind("[data-fancybox]", {
+          theme: "auto",
+          mainStyle: {
+            "--f-button-width": "44px",
+            "--f-button-height": "44px",
+            "--f-button-border-radius": "50%",
+            "--f-toolbar-padding": "16px",
+          },
+          Carousel: {
+            Arrows: false,
+            Toolbar: {
+              display: {
+                left: [],
+                middle: [],
+                right: ["close"],
+              },
+            },
+            transition: "slide",
+          },
+        });
+      </script>
+    </section>
+  </div>
+
+  <style>
+    .justified-gallery {
       --padding: max(2.5vw, 12px);
       --space: max(2.5vw, 12px);
       --min-height: clamp(200px, 20vw, 300px);
@@ -112,519 +216,547 @@ const sortedPosts = allPosts
       display: flex;
       flex-wrap: wrap;
       gap: var(--space);
-  }
-
-  a {
-    flex-grow: calc(var(--width) * (100000 / var(--height)));
-    flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
-    aspect-ratio: var(--width) / var(--height);
-    overflow: hidden;
-    opacity: 1;
-    transition: all 0.05s ease-in-out;
-  }
-
-  a img {
-    display: block;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-
-  a:focus-visible {
-    outline: 3px solid var(--outline);
-    outline-offset: 2px;
-    transform: scale(1.05);
-    z-index: 1;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
-  }
-
-  a.hidden {
-    transition: opacity 0.4s ease-in-out;
-    opacity: 0;
-  }
-
-  &::after {
-    content: " ";
-    flex-grow: 1000000000;
-  }
-  .landing-page {
-    width: 100%;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--content-padding);
-  }
-
-  .hero {
-    text-align: center;
-    padding: calc(var(--grid-unit) * 12) 0 calc(var(--grid-unit) * 8);
-    /* background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%); */
-    background: url('../assets/AspenHero.png'), linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
-    background-size: cover;
-  }
-
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 var(--content-padding);
-  }
-
-  .hero-title {
-    font-family: var(--font-heading-primary);
-    font-size: 4.5rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    line-height: 0.9;
-    margin-bottom: calc(var(--grid-unit) * 2);
-  }
-
-  .hero-subtitle {
-    font-family: var(--font-heading-secondary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: calc(var(--grid-unit) * 3);
-  }
-
-  .hero-description {
-    font-size: 1.375rem;
-    line-height: 1.6;
-    color: var(--color-text-primary);
-    margin-bottom: calc(var(--grid-unit) * 4);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-rule {
-    height: 6px;
-    background-color: var(--color-accent);
-    border: none;
-    width: 150px;
-    margin: 0 auto calc(var(--grid-unit) * 4);
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: calc(var(--grid-unit) * 2);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    font-family: var(--font-heading-secondary);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: calc(var(--grid-unit) * 1.5) calc(var(--grid-unit) * 3);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.95rem;
-  }
-
-  .btn-primary {
-    background-color: var(--color-accent);
-    color: white;
-    border: 2px solid var(--color-accent);
-  }
-
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background-color: transparent;
-    color: var(--color-accent);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border: 2px solid var(--color-border);
-  }
-
-  .btn-secondary:hover,
-  .btn-secondary:focus {
-    background-color: var(--color-text-primary);
-    color: var(--color-background);
-    transform: translateY(-2px);
-  }
-
-  /* Dark mode button styles */
-  :global([data-theme="dark"]) .btn-primary {
-    background-color: var(--color-accent);
-    color: white;
-    border-color: var(--color-accent);
-  }
-
-  :global([data-theme="dark"]) .btn-primary:hover,
-  :global([data-theme="dark"]) .btn-primary:focus {
-    background-color: transparent;
-    color: var(--color-accent);
-  }
-
-  :global([data-theme="dark"]) .btn-secondary {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border-color: var(--color-border);
-  }
-
-  :global([data-theme="dark"]) .btn-secondary:hover,
-  :global([data-theme="dark"]) .btn-secondary:focus {
-    background-color: var(--color-accent);
-    color: white;
-    border-color: var(--color-accent);
-  }
-
-  .features {
-    padding: calc(var(--grid-unit) * 8) 0;
-  }
-
-  .section-title {
-    font-family: var(--font-heading-secondary);
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: calc(var(--grid-unit) * 6);
-    text-align: center;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: calc(var(--grid-unit) * 4);
-  }
-
-  .feature-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: calc(var(--grid-unit) * 4);
-    text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-accent);
-  }
-
-  .feature-icon {
-    font-size: 3rem;
-    margin-bottom: calc(var(--grid-unit) * 2);
-  }
-
-  .feature-title {
-    font-family: var(--font-heading-secondary);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: calc(var(--grid-unit) * 1.5);
-  }
-
-  .feature-description {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Typography Showcase */
-  .typography-showcase {
-    padding: calc(var(--grid-unit) * 8) 0;
-    background-color: var(--color-surface);
-  }
-
-  .typography-description {
-    text-align: center;
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-    margin-bottom: calc(var(--grid-unit) * 6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .typography-samples {
-    display: grid;
-    gap: calc(var(--grid-unit) * 6);
-  }
-
-  .type-sample {
-    text-align: center;
-    padding: calc(var(--grid-unit) * 4);
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-  }
-
-  .sample-h1 {
-    font-family: var(--font-heading-primary);
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    line-height: 1.1;
-    margin-bottom: calc(var(--grid-unit) * 2);
-  }
-
-  .sample-h2 {
-    font-family: var(--font-heading-secondary);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 1.2;
-    margin-bottom: calc(var(--grid-unit) * 2);
-  }
-
-  .sample-body {
-    font-family: var(--font-body);
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--color-text-primary);
-    margin-bottom: calc(var(--grid-unit) * 2);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .sample-code {
-    font-family: var(--font-mono);
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: calc(var(--grid-unit)) calc(var(--grid-unit) * 1.5);
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: calc(var(--grid-unit) * 2);
-    color: var(--color-text-primary);
-  }
-
-  .type-meta {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0;
-  }
-
-  .demo-section {
-    padding: calc(var(--grid-unit) * 8) 0;
-  }
-
-  .demo-description {
-    text-align: center;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin-bottom: calc(var(--grid-unit) * 6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .demo-posts {
-    display: grid;
-    gap: calc(var(--grid-unit) * 4);
-    margin-bottom: calc(var(--grid-unit) * 6);
-  }
-
-  .demo-post-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: calc(var(--grid-unit) * 3);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-
-  .demo-post-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--color-accent);
-  }
-
-  .demo-post-title {
-    font-family: var(--font-heading-secondary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: calc(var(--grid-unit));
-  }
-
-  .demo-post-title a {
-    color: var(--color-text-primary);
-    text-decoration: none;
-  }
-
-  .demo-post-title a:hover,
-  .demo-post-title a:focus {
-    color: var(--color-accent);
-  }
-
-  .demo-post-meta {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: calc(var(--grid-unit));
-    margin-bottom: calc(var(--grid-unit) * 1.5);
-  }
-
-  .demo-post-date {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .demo-post-reading-time {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .demo-post-reading-time::before {
-    content: "•";
-    margin: 0 calc(var(--grid-unit) / 2);
-    color: var(--color-border);
-  }
-
-  .demo-post-excerpt {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: calc(var(--grid-unit) * 2);
-  }
-
-  .demo-post-categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--grid-unit) / 2);
-  }
-
-  .demo-category {
-    background-color: var(--color-text-primary);
-    color: white;
-    padding: calc(var(--grid-unit) / 4) calc(var(--grid-unit) / 2);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 2px;
-  }
-
-  /* Dark mode demo category styles */
-  :global([data-theme="dark"]) .demo-category {
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-  }
-
-  .demo-actions {
-    text-align: center;
-  }
-
-  .installation {
-    padding: calc(var(--grid-unit) * 8) 0;
-    background-color: var(--color-surface);
-  }
-
-  .install-steps {
-    display: grid;
-    gap: calc(var(--grid-unit) * 4);
-  }
-
-  .step {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: calc(var(--grid-unit) * 2);
-    align-items: start;
-  }
-
-  .step-number {
-    font-family: var(--font-heading-primary);
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--color-accent);
-    margin: 0;
-  }
-
-  .step-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .step-title {
-    font-family: var(--font-heading-secondary);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: calc(var(--grid-unit));
-  }
-
-  .code-block {
-    background-color: var(--color-text-primary);
-    color: var(--color-background);
-    padding: calc(var(--grid-unit) * 2);
-    border-radius: 8px;
-    overflow-x: auto;
-    margin: 0;
-  }
-
-  .code-block code {
-    font-family: var(--font-mono);
-    background: none;
-    border: none;
-    color: inherit;
-  }
-
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 3rem;
+    }
+
+    a {
+      flex-grow: calc(var(--width) * (100000 / var(--height)));
+      flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+      aspect-ratio: var(--width) / var(--height);
+      overflow: hidden;
+      opacity: 1;
+      transition: all 0.05s ease-in-out;
+    }
+
+    a img {
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--outline);
+      outline-offset: 2px;
+      transform: scale(1.05);
+      z-index: 1;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    a.hidden {
+      transition: opacity 0.4s ease-in-out;
+      opacity: 0;
+    }
+
+    &::after {
+      content: " ";
+      flex-grow: 1000000000;
+    }
+    .landing-page {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+      text-align: center;
+      padding: calc(var(--grid-unit) * 12) 0 calc(var(--grid-unit) * 8);
+      /* background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%); */
+      background:
+        url("../assets/AspenHero.png"),
+        linear-gradient(
+          135deg,
+          var(--color-surface) 0%,
+          var(--color-background) 100%
+        );
+      background-size: cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading-primary);
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 0.9;
+      margin-bottom: calc(var(--grid-unit) * 2);
     }
 
     .hero-subtitle {
-      font-size: 1.25rem;
+      font-family: var(--font-heading-secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: calc(var(--grid-unit) * 3);
     }
 
     .hero-description {
-      font-size: 1.125rem;
+      font-size: 1.375rem;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      margin-bottom: calc(var(--grid-unit) * 4);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-rule {
+      height: 6px;
+      background-color: var(--color-accent);
+      border: none;
+      width: 150px;
+      margin: 0 auto calc(var(--grid-unit) * 4);
     }
 
     .hero-actions {
-      flex-direction: column;
-      align-items: center;
+      display: flex;
+      gap: calc(var(--grid-unit) * 2);
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .features-grid {
-      grid-template-columns: 1fr;
+    .btn {
+      font-family: var(--font-heading-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: calc(var(--grid-unit) * 1.5) calc(var(--grid-unit) * 3);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.95rem;
     }
 
-    .step {
-      grid-template-columns: 1fr;
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: white;
+      border: 2px solid var(--color-accent);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: transparent;
+      color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      border: 2px solid var(--color-border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background-color: var(--color-text-primary);
+      color: var(--color-background);
+      transform: translateY(-2px);
+    }
+
+    /* Dark mode button styles */
+    :global([data-theme="dark"]) .btn-primary {
+      background-color: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+
+    :global([data-theme="dark"]) .btn-primary:hover,
+    :global([data-theme="dark"]) .btn-primary:focus {
+      background-color: transparent;
+      color: var(--color-accent);
+    }
+
+    :global([data-theme="dark"]) .btn-secondary {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      border-color: var(--color-border);
+    }
+
+    :global([data-theme="dark"]) .btn-secondary:hover,
+    :global([data-theme="dark"]) .btn-secondary:focus {
+      background-color: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+
+    .features {
+      padding: calc(var(--grid-unit) * 8) 0;
+    }
+
+    .section-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: calc(var(--grid-unit) * 6);
       text-align: center;
     }
 
-    .step-number {
-      font-size: 2rem;
+    .section-title-highlights {
+      font-family: var(--font-heading-secondary);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0;
+      text-align: center;
     }
-  }
-</style>
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: calc(var(--grid-unit) * 4);
+    }
+
+    .feature-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: calc(var(--grid-unit) * 4);
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .feature-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: calc(var(--grid-unit) * 1.5);
+    }
+
+    .feature-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Typography Showcase */
+    .typography-showcase {
+      padding: calc(var(--grid-unit) * 8) 0;
+      background-color: var(--color-surface);
+    }
+
+    .typography-description {
+      text-align: center;
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: calc(var(--grid-unit) * 6);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .typography-samples {
+      display: grid;
+      gap: calc(var(--grid-unit) * 6);
+    }
+
+    .type-sample {
+      text-align: center;
+      padding: calc(var(--grid-unit) * 4);
+      background-color: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+
+    .sample-h1 {
+      font-family: var(--font-heading-primary);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 1.1;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .sample-h2 {
+      font-family: var(--font-heading-secondary);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.2;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .sample-body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      margin-bottom: calc(var(--grid-unit) * 2);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sample-code {
+      font-family: var(--font-mono);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: calc(var(--grid-unit)) calc(var(--grid-unit) * 1.5);
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: calc(var(--grid-unit) * 2);
+      color: var(--color-text-primary);
+    }
+
+    .type-meta {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    .demo-section {
+      padding: calc(var(--grid-unit) * 8) 0;
+    }
+
+    .demo-description {
+      text-align: center;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: calc(var(--grid-unit) * 6);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .demo-posts {
+      display: grid;
+      gap: calc(var(--grid-unit) * 4);
+      margin-bottom: calc(var(--grid-unit) * 6);
+    }
+
+    .demo-post-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: calc(var(--grid-unit) * 3);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .demo-post-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+    }
+
+    .demo-post-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: calc(var(--grid-unit));
+    }
+
+    .demo-post-title a {
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    .demo-post-title a:hover,
+    .demo-post-title a:focus {
+      color: var(--color-accent);
+    }
+
+    .demo-post-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: calc(var(--grid-unit));
+      margin-bottom: calc(var(--grid-unit) * 1.5);
+    }
+
+    .demo-post-date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-post-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-post-reading-time::before {
+      content: "•";
+      margin: 0 calc(var(--grid-unit) / 2);
+      color: var(--color-border);
+    }
+
+    .demo-post-excerpt {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: calc(var(--grid-unit) * 2);
+    }
+
+    .demo-post-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--grid-unit) / 2);
+    }
+
+    .demo-category {
+      background-color: var(--color-text-primary);
+      color: white;
+      padding: calc(var(--grid-unit) / 4) calc(var(--grid-unit) / 2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+    }
+
+    /* Dark mode demo category styles */
+    :global([data-theme="dark"]) .demo-category {
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+
+    .demo-actions {
+      text-align: center;
+    }
+
+    .installation {
+      padding: calc(var(--grid-unit) * 8) 0;
+      background-color: var(--color-surface);
+    }
+
+    .install-steps {
+      display: grid;
+      gap: calc(var(--grid-unit) * 4);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: calc(var(--grid-unit) * 2);
+      align-items: start;
+    }
+
+    .step-number {
+      font-family: var(--font-heading-primary);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      margin: 0;
+    }
+
+    .step-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-title {
+      font-family: var(--font-heading-secondary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: calc(var(--grid-unit));
+    }
+
+    .code-block {
+      background-color: var(--color-text-primary);
+      color: var(--color-background);
+      padding: calc(var(--grid-unit) * 2);
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .code-block code {
+      font-family: var(--font-mono);
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--color-surface) 0%,
+          var(--color-background) 100%
+        );
+        /* background: url('../assets/AspenHero.png'), linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+      background-size: cover; */
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .hero-description {
+        font-size: 1.125rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .step-number {
+        font-size: 2rem;
+      }
+    }
+  </style></Layout
+>
