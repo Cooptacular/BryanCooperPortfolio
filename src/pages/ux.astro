@@ -55,6 +55,7 @@ const sortedPosts = allPosts
         </div>
       </div>
     </section>
+    <h2 class="section-title-highlights">Product Design Highlights</h2>
     <section class="justified-gallery" id="photoswipe">
         {
           Object.entries(images).map(async ([_path, image], index) => {
@@ -299,7 +300,16 @@ const sortedPosts = allPosts
     margin-bottom: calc(var(--grid-unit) * 6);
     text-align: center;
   }
-
+  .section-title-highlights {
+    font-family: var(--font-heading-secondary);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+  
   .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

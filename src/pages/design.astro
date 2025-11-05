@@ -59,6 +59,7 @@ const sortedPosts = allPosts
       </section>      
     <section class="features" id="features">
       <div class="container">
+        <h2 class="section-title">Design Disciplines</h2>
         <div class="features-grid">
           <div class="feature-card">
             <h3 class="feature-title">Product Design</h3>
@@ -91,42 +92,42 @@ const sortedPosts = allPosts
         </div>
       </div>
     </section>  
-      <script>
-      import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+    <script>
+    import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
-      Fancybox.bind("[data-fancybox]", {
-        theme: "auto",
-        mainStyle: {
-          "--f-button-width": "44px",
-          "--f-button-height": "44px",
-          "--f-button-border-radius": "50%",
-          "--f-toolbar-padding": "16px",
-        },
-        Carousel: {
-          Arrows: false,
-          Toolbar: {
-            display: {
-              left: [],
-              middle: [],
-              right: ["close"],
-            },
+    Fancybox.bind("[data-fancybox]", {
+      theme: "auto",
+      mainStyle: {
+        "--f-button-width": "44px",
+        "--f-button-height": "44px",
+        "--f-button-border-radius": "50%",
+        "--f-toolbar-padding": "16px",
+      },
+      Carousel: {
+        Arrows: false,
+        Toolbar: {
+          display: {
+            left: [],
+            middle: [],
+            right: ["close"],
           },
-          transition: "slide",
         },
-      });
-    </script> 
+        transition: "slide",
+      },
+    });
+  </script> 
   </div> 
 </Layout> 
   <style>
-    .justified-gallery {
-      --padding: max(2.5vw, 12px);
-      --space: max(2.5vw, 12px);
-      --min-height: clamp(200px, 20vw, 300px);
+  .justified-gallery {
+    --padding: max(2.5vw, 12px);
+    --space: max(2.5vw, 12px);
+    --min-height: clamp(200px, 20vw, 300px);
 
-      padding: var(--padding);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space);
+    padding: var(--padding);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space);
   }
 
   a {
